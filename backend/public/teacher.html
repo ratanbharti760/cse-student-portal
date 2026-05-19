@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Management Console</title>
+    <link href="[https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css](https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css)" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h4 class="mb-0 fw-bold">Faculty Portal</h4>
+            </div>
+            <ul class="list-unstyled components">
+                <li class="active"><a href="#" onclick="switchTab('upload')">📊 Bulk Data Processing</a></li>
+                <li><a href="#" onclick="switchTab('notices')">📢 Push Class Notices</a></li>
+                <li><a href="index.html">🚪 Exit Dashboard</a></li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <!-- Processing View Container Segment -->
+            <div id="uploadView">
+                <h2 class="fw-bold mb-4">Bulk Academic Ingestion Matrix</h2>
+                
+                <div class="row g-4">
+                    <!-- Excel Marks Submission Panel Card Component -->
+                    <div class="col-md-4">
+                        <div class="card p-4 border-0 shadow-sm rounded-3 bg-white">
+                            <h5 class="fw-bold text-primary mb-3">Ingest Student Marks Ledger</h5>
+                            <p class="text-muted small">Required columns: <code>reg_no</code>, <code>subject</code>, <code>internal_marks</code>, <code>external_marks</code></p>
+                            <form id="formUploadMarks" enctype="multipart/form-data">
+                                <input type="file" name="excelFile" class="form-control mb-3" accept=".xlsx, .xls" required>
+                                <button type="submit" class="btn btn-primary w-100">Upload Dataset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Dataset Submission Box -->
+                    <div class="col-md-4">
+                        <div class="card p-4 border-0 shadow-sm rounded-3 bg-white">
+                            <h5 class="fw-bold text-success mb-3">Ingest Attendance Ledger</h5>
+                            <p class="text-muted small">Required columns: <code>reg_no</code>, <code>subject</code>, <code>attendance_percentage</code></p>
+                            <form id="formUploadAttendance" enctype="multipart/form-data">
+                                <input type="file" name="excelFile" class="form-control mb-3" accept=".xlsx, .xls" required>
+                                <button type="submit" class="btn btn-success w-100">Upload Dataset</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Course Delivery Metrics Tracking Ingest -->
+                    <div class="col-md-4">
+                        <div class="card p-4 border-0 shadow-sm rounded-3 bg-white">
+                            <h5 class="fw-bold text-warning mb-3">Ingest Syllabus Roadmaps</h5>
+                            <p class="text-muted small">Required columns: <code>subject</code>, <code>teacher_name</code>, <code>total_units</code>, <code>completed_units</code></p>
+                            <form id="formUploadSyllabus" enctype="multipart/form-data">
+                                <input type="file" name="excelFile" class="form-control mb-3" accept=".xlsx, .xls" required>
+                                <button type="submit" class="btn btn-warning w-100">Upload Dataset</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Internal Management View System For Push Notes Bulletin -->
+            <div id="noticesView" class="d-none">
+                <h2 class="fw-bold mb-4">Publish Target Class Notice Bulletins</h2>
+                <div class="card p-4 border-0 shadow-sm rounded-3 bg-white max-width-600">
+                    <form id="formTeacherNotice">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Bulletin Header Title</label>
+                            <input type="text" id="txtNoticeTitle" class="form-control" placeholder="E.g., Mid-Term Answer Sheet Evaluated Review Session" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Notice Body Description Context</label>
+                            <textarea id="txtNoticeDesc" class="form-control" rows="5" placeholder="Elaborate contextual notes to broadcast department-wide..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-dark px-4">Broadcast Notice Bulletin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

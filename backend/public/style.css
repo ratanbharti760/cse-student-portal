@@ -1,0 +1,53 @@
+/* Custom Fixes on top of Bootstrap */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+body {
+    background-color: #EEF4F8;
+    font-family: 'Inter', sans-serif;
+}
+
+header {
+    background: linear-gradient(135deg, #0B2545, #134074);
+    color: white;
+    padding: 20px 30px;
+    border-bottom: 4px solid #EEB902;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 span {
+    color: #EEB902;
+}
+
+.card {
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+}
+
+.btn-primary {
+    background: #134074;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #0B2545;
+}
+
+.btn-accent {
+    background: #EEB902;
+    color: #0B2545;
+    font-weight: 600;
+    border: none;
+}
+
+.btn-accent:hover {
+    background: #D6A600;
+    color: #0B2545;
+}
+
+.table-responsive {
+    border-radius: 8px;
+    overflow: hidden;
+}
